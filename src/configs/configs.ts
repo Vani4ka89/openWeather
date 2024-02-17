@@ -2,4 +2,8 @@ import { config } from "dotenv";
 
 config();
 
-const configs = {};
+export const configs = {
+  PORT: process.env.PORT,
+  WEATHER_API_KEY: process.env.WEATHER_API_KEY,
+  WEATHER_URL: process.env.WEATHER_URL,
+};
