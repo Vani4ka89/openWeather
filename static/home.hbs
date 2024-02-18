@@ -19,42 +19,16 @@
   </form>
 
   <div class="weather-info">
-
-    {{#if icon.clear}}
-    <img src="./images/clear.png" alt="icon" class="icon">
-      {{/if}}
-
-    {{#if icon.clouds}}
-      <img src="./images/clouds.png" alt="icon" class="icon">
-    {{/if}}
-
-    {{#if icon.drizzle}}
-      <img src="./images/drizzle.png" alt="icon" class="icon">
-    {{/if}}
-
-    {{#if icon.snow}}
-      <img src="./images/snow.png" alt="icon" class="icon">
-    {{/if}}
-
-    {{#if icon.rain}}
-      <img src="./images/rain.png" alt="icon" class="icon">
-    {{/if}}
-
-    {{#if icon.mist}}
-      <img src="./images/mist.png" alt="icon" class="icon">
-    {{/if}}
-
-    <div>{{weather.description}}</div>
-
-    <h1 class="temp">{{temp}} °C</h1>
-    <h2 class="city">{{weather.cityName}}</h2>
+    <img src="./images/rain.png" alt="icon" class="icon">
+    <h1 class="temp">- °C</h1>
+    <h2 class="city">- - -</h2>
   </div>
 
   <div class="weather-details">
     <div class="element">
       <img src="./images/humidity.png" alt="humidity">
       <div class="info">
-        <p class="humidity">{{weather.humidity}} %</p>
+        <p class="humidity">- - - %</p>
         <p>Humidity</p>
       </div>
     </div>
@@ -62,7 +36,7 @@
     <div class="element">
       <img src="./images/wind.png" alt="wind">
       <div class="info">
-        <p class="wind">{{weather.windSpeed}} km/h</p>
+        <p class="wind">- - - km/h</p>
         <p>Wind Speed</p>
       </div>
     </div>

@@ -5,7 +5,8 @@ export class WeatherPresenter {
     return {
       id: weather.id,
       icon: weather.weather[0].icon,
-      description: weather.weather[0].description,
+      iconInfo: weather.weather[0].main,
+      description: weather.weather[0].description.toUpperCase(),
       country: weather.sys.country,
       cityName: weather.name,
       temperature: weather.main.temp,

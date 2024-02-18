@@ -13,6 +13,7 @@ class WeatherController {
     try {
       const city = req.query.city as string;
       const weather = await weatherService.getWeather(city);
+      res.render("weather", { weather });
       return res.status(200).json({
         data: WeatherPresenter.weatherToResponse(weather),
       });

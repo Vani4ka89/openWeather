@@ -4,7 +4,9 @@ import * as path from "path";
 
 import { configs } from "./configs";
 import { ApiError } from "./errors";
+import { WeatherPresenter } from "./presenters";
 import { weatherRouter } from "./routers";
+import { weatherService } from "./services";
 
 const app = express();
 
@@ -19,7 +21,30 @@ app.engine(".hbs", engine({ defaultLayout: false }));
 app.set("views", path.join(process.cwd(), "static"));
 
 app.get("/", async (req: Request, res: Response) => {
-  res.render("weather");
+  res.render("home");
+});
+
+app.get("/info", async (req: Request, res: Response) => {
+  try {
+    const city = (req.query.city as string) || "Ternopil";
+    const info = await weatherService.getWeather(city);
+    const temp = Math.round(info.main.temp - 273);
+    const weather = WeatherPresenter.weatherToResponse(info);
+    res.render("weather", {
+      weather,
+      temp,
+      icon: {
+        clear: weather.iconInfo === "Clear",
+        drizzle: weather.iconInfo === "Drizzle",
+        clouds: weather.iconInfo === "Clouds",
+        rain: weather.iconInfo === "Rain",
+        snow: weather.iconInfo === "Snow",
+        mist: weather.iconInfo === "Mist",
+      },
+    });
+  } catch (e) {
+    res.render("error");
+  }
 });
 
 app.use("/weather", weatherRouter);

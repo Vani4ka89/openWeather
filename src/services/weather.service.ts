@@ -11,7 +11,7 @@ class WeatherService {
       const { data } = await axios.get(url);
       return await data;
     } catch (err) {
-      throw new ApiError("Something went wrong!...", 400);
+      throw new ApiError("Please enter a correct city name!...", 400);
     }
   }
 }
