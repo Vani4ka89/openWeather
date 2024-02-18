@@ -53,6 +53,9 @@
         "temperature": {
           "type": "integer"
         },
+        "feelsLike": {
+          "type": "integer"
+        },
         "windSpeed": {
           "type": "integer"
         },

@@ -32,11 +32,13 @@ app.get("/info", async (req: Request, res: Response) => {
   try {
     const city = (req.query.city as string) || "Ternopil";
     const info = await weatherService.getWeather(city);
-    const temp = Math.round(info.main.temp - 273);
+    const temp = Math.round(info.main.temp - 273.15);
+    const feelsLike = Math.round(info.main.feels_like - 273.15);
     const weather = WeatherPresenter.weatherToResponse(info);
     res.render("weather", {
       weather,
       temp,
+      feelsLike,
       icon: {
         clear: weather.iconInfo === "Clear",
         drizzle: weather.iconInfo === "Drizzle",

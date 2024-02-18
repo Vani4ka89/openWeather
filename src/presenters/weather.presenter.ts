@@ -10,6 +10,7 @@ export class WeatherPresenter {
       country: weather.sys.country,
       cityName: weather.name,
       temperature: weather.main.temp,
+      feelsLike: weather.main.feels_like,
       windSpeed: weather.wind.speed,
       humidity: weather.main.humidity,
       pressure: weather.main.pressure,
