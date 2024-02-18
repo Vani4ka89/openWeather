@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Weather</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+
+<div class="card">
+  <form action="/weather" method="get" class="form">
+    <input class="input" type="text" name="city" placeholder="Enter city name">
+    <button class="btn">
+      <img src="./images/search.png" alt="search">
+    </button>
+  </form>
+
+  <div class="weather-info">
+    <img src="./images/rain.png" alt="icon" class="icon">
+    <h1 class="temp">22 °C</h1>
+    <h2 class="city">Ternopil</h2>
+  </div>
+
+  <div class="weather-details">
+    <div class="element">
+      <img src="./images/humidity.png" alt="humidity">
+      <div class="info">
+        <p class="humidity">50 %</p>
+        <p>Humidity</p>
+      </div>
+    </div>
+
+    <div class="element">
+      <img src="./images/wind.png" alt="wind">
+      <div class="info">
+        <p class="wind">15 km/h</p>
+        <p>Wind Speed</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

@@ -19,7 +19,7 @@ app.engine(".hbs", engine({ defaultLayout: false }));
 app.set("views", path.join(process.cwd(), "static"));
 
 app.get("/", async (req: Request, res: Response) => {
-  res.render("home");
+  res.render("weather");
 });
 
 app.use("/weather", weatherRouter);
