@@ -1,0 +1,74 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Open Weather",
+    "description": "You can see our application and try it here [http://localhost:4000]"
+  },
+  "paths": {
+    "/weather": {
+      "get": {
+        "tags": ["Weather"],
+        "description": "Get weather info",
+        "summary": "Get info about weather",
+        "parameters": [
+          {
+            "name": "city",
+            "in": "query",
+            "description": "City name in query parameters",
+            "required": true,
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Received weather info"
+          }
+        }
+      }
+    }
+  },
+  "host": "localhost:4000",
+  "definitions": {
+    "Weather": {
+      "properties": {
+        "id": {
+          "type": "integer"
+        },
+        "icon": {
+          "type": "string"
+        },
+        "iconInfo": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "country": {
+          "type": "string"
+        },
+        "cityName": {
+          "type": "string"
+        },
+        "temperature": {
+          "type": "integer"
+        },
+        "windSpeed": {
+          "type": "integer"
+        },
+        "humidity": {
+          "type": "integer"
+        },
+        "pressure": {
+          "type": "integer"
+        },
+        "lon": {
+          "type": "integer"
+        },
+        "lat": {
+          "type": "integer"
+        }
+      }
+    }
+  }
+}

@@ -1,12 +1,14 @@
 import express, { Request, Response, urlencoded } from "express";
 import { engine } from "express-handlebars";
 import * as path from "path";
+import * as swaggerUi from "swagger-ui-express";
 
 import { configs } from "./configs";
 import { ApiError } from "./errors";
 import { WeatherPresenter } from "./presenters";
 import { weatherRouter } from "./routers";
 import { weatherService } from "./services";
+import * as swaggerDocument from "./utils/swagger.json";
 
 const app = express();
 
@@ -19,6 +21,8 @@ app.use(express.static(path.join(process.cwd(), "static")));
 app.set("view engine", ".hbs");
 app.engine(".hbs", engine({ defaultLayout: false }));
 app.set("views", path.join(process.cwd(), "static"));
+
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 app.get("/", async (req: Request, res: Response) => {
   res.render("home");
