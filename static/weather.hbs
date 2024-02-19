@@ -11,7 +11,7 @@
 <body>
 
 <div class="card">
-  <form action="/info" method="get" class="form">
+  <form action="/weather-info" method="get" class="form">
     <input class="input" type="text" name="city" placeholder="Enter city name">
     <button class="btn">
       <img src="./images/search.png" alt="search">
@@ -44,7 +44,7 @@
       <img src="./images/mist.png" alt="icon" class="icon">
     {{/if}}
 
-    <div>{{weather.description}}</div>
+    <div>{{description}}</div>
 
     <h1 class="temp">{{temp}} °C</h1>
     <h2 class="city">{{weather.cityName}}</h2>

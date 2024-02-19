@@ -3,7 +3,7 @@
   "info": {
     "version": "1.0.0",
     "title": "Open Weather",
-    "description": "You can see our application and try it here [http://localhost:4000]"
+    "description": "You can see our application and try it here [http://localhost:4000/weather-info]"
   },
   "paths": {
     "/weather": {
