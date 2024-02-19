@@ -7,7 +7,7 @@ import { IWeather } from "../types";
 class WeatherService {
   public async getWeather(city: string): Promise<IWeather> {
     try {
-      const url = `${urls.weatherUrl}${city}&appid=${urls.apiKey}`;
+      const url = `${urls.weatherUrl}${city}&appid=${urls.apiKey}&lang=ua`;
       const { data } = await axios.get(url);
       return await data;
     } catch (err) {
