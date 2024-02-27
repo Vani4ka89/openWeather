@@ -9,7 +9,7 @@ class WeatherMiddleware {
     return async (req: Request, res: Response, next: NextFunction) => {
       try {
         const city = req.query.city as IWeatherQuery;
-        if (city === undefined || !city) {
+        if (!city) {
           throw new ApiError("No city name", 400);
         }
         const { error, value } = validator.validate(city);
@@ -31,7 +31,7 @@ class WeatherMiddleware {
     return async (req: Request, res: Response, next: NextFunction) => {
       try {
         const city = req.query.city as IWeatherQuery;
-        if (city === undefined || !city) {
+        if (!city) {
           return res.render("home");
         }
         const { error, value } = validator.validate(city);
