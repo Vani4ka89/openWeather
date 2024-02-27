@@ -2,16 +2,16 @@ import axios from "axios";
 
 import { urls } from "../constants";
 import { ApiError } from "../errors";
-import { IWeather } from "../types";
+import { IWeather, IWeatherQuery } from "../types";
 
 class WeatherService {
-  public async getWeather(city: string): Promise<IWeather> {
+  public async getWeather(city: IWeatherQuery): Promise<IWeather> {
     try {
       const url = `${urls.weatherUrl}${city}&appid=${urls.apiKey}&lang=ua`;
       const { data } = await axios.get(url);
       return await data;
     } catch (err) {
-      throw new ApiError("Please enter a correct city name!...", 400);
+      throw new ApiError("City name is wrong!...", 400);
     }
   }
 }

@@ -5,8 +5,7 @@ import * as swaggerUi from "swagger-ui-express";
 
 import { configs } from "./configs";
 import { ApiError } from "./errors";
-import { weatherRouter } from "./routers";
-import { getWeatherInfoToRender } from "./services";
+import { weatherRouter, weatherToRenderRouter } from "./routers";
 import * as swaggerDocument from "./utils/swagger.json";
 
 const app = express();
@@ -23,9 +22,7 @@ app.set("view engine", ".hbs");
 app.engine(".hbs", engine({ defaultLayout: false }));
 app.set("views", path.join(process.cwd(), "static"));
 
-app.get("/weather-info", async (req: Request, res: Response): Promise<void> => {
-  await getWeatherInfoToRender(req, res);
-});
+app.use("/weather-info", weatherToRenderRouter);
 
 app.use("/weather", weatherRouter);
 
@@ -38,5 +35,5 @@ app.use("*", (err: ApiError, req: Request, res: Response) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server has started on port ${PORT}`);
+  console.log(`Server has started on ${PORT} port`);
 });

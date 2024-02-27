@@ -2,7 +2,7 @@ import { NextFunction, Request, Response } from "express";
 
 import { WeatherPresenter } from "../presenters";
 import { weatherService } from "../services";
-import { IWeather } from "../types";
+import { IWeather, IWeatherQuery } from "../types";
 
 class WeatherController {
   public async getWeather(
@@ -11,7 +11,7 @@ class WeatherController {
     next: NextFunction,
   ): Promise<Response<IWeather>> {
     try {
-      const city = req.query.city as string;
+      const city = req.res.locals.city as IWeatherQuery;
       const weather = await weatherService.getWeather(city);
       return res.status(200).json({
         data: WeatherPresenter.weatherToResponse(weather),

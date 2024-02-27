@@ -20,33 +20,33 @@
 
   <div class="weather-info">
 
-    {{#if icon.clear}}
+    {{#if weather.icon.clear}}
     <img src="./images/clear.png" alt="icon" class="icon">
       {{/if}}
 
-    {{#if icon.clouds}}
+    {{#if weather.icon.clouds}}
       <img src="./images/clouds.png" alt="icon" class="icon">
     {{/if}}
 
-    {{#if icon.drizzle}}
+    {{#if weather.icon.drizzle}}
       <img src="./images/drizzle.png" alt="icon" class="icon">
     {{/if}}
 
-    {{#if icon.snow}}
+    {{#if weather.icon.snow}}
       <img src="./images/snow.png" alt="icon" class="icon">
     {{/if}}
 
-    {{#if icon.rain}}
+    {{#if weather.icon.rain}}
       <img src="./images/rain.png" alt="icon" class="icon">
     {{/if}}
 
-    {{#if icon.mist}}
+    {{#if weather.icon.mist}}
       <img src="./images/mist.png" alt="icon" class="icon">
     {{/if}}
 
-    <div>{{description}}</div>
+    <div>{{weather.description}}</div>
 
-    <h1 class="temp">{{temp}} °C</h1>
+    <h1 class="temp">{{weather.temp}} °C</h1>
     <h2 class="city">{{weather.cityName}}</h2>
   </div>
 
@@ -60,7 +60,7 @@
     </div>
 
         <div class="info">
-          <p class="humidity">{{feelsLike}} °C</p>
+          <p class="humidity">{{weather.feelsLike}} °C</p>
           <p>Feels like</p>
         </div>
 
